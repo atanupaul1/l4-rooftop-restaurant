@@ -5,7 +5,7 @@ import { ArrowRight, Star } from "lucide-react";
 
 export function Hero() {
     return (
-        <section className="relative min-h-screen flex flex-col justify-start md:justify-center items-center overflow-hidden bg-primary px-4 pt-32 md:pt-20">
+        <section className="relative min-h-screen flex flex-col justify-start md:justify-center items-center overflow-hidden bg-primary px-4 pt-24 md:pt-20">
             {/* Decorative Background Blobs */}
             <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-primary-foreground/5 rounded-full blur-3xl animate-float-slow" />
             <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-accent/10 rounded-full blur-3xl animate-float-medium delay-1000" />
