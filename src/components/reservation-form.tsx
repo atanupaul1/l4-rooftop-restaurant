@@ -19,11 +19,12 @@ export function ReservationForm() {
 
         const formData = new FormData(event.currentTarget);
         const data = {
-            name: formData.get("name") as string,
+            guest_name: formData.get("name") as string,
             phone: formData.get("phone") as string,
-            reservation_date: formData.get("date") as string,
-            reservation_time: formData.get("time") as string,
-            guests: parseInt(formData.get("guests") as string),
+            date: formData.get("date") as string,
+            time: formData.get("time") as string,
+            guests_count: parseInt(formData.get("guests") as string),
+            status: 'pending'
         };
 
         if (!supabase) {
