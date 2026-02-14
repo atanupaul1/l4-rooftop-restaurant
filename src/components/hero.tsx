@@ -50,7 +50,7 @@ export function Hero() {
                         </Button>
                     </Link>
                     <Link href="#reservation">
-                        <Button size="lg" variant="outline" className="rounded-full border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary min-w-[180px] h-14 text-lg backdrop-blur-sm transition-all duration-300">
+                        <Button size="lg" className="rounded-full bg-[#E8E0D5] hover:bg-white text-primary font-semibold min-w-[180px] h-14 text-lg shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-[#E8E0D5] hover:border-white">
                             Book a Table
                         </Button>
                     </Link>

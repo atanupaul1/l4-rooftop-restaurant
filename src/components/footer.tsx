@@ -18,13 +18,18 @@ export function Footer() {
                     {/* Contact Info */}
                     <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-4">
                         <h3 className="text-xl font-serif font-bold mb-2">Visit Us</h3>
-                        <div className="flex items-start gap-3">
+                        <a
+                            href="https://maps.app.goo.gl/LDm3km2Wdj9UsFgq5?g_st=aw"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-start gap-3 hover:text-accent transition-colors"
+                        >
                             <MapPin className="h-5 w-5 mt-1 shrink-0" />
                             <p className="text-primary-foreground/80">
                                 123 Example Street, <br />
                                 City, State 12345
                             </p>
-                        </div>
+                        </a>
                         <div className="flex items-center gap-3">
                             <Phone className="h-5 w-5 shrink-0" />
                             <p className="text-primary-foreground/80">+91 98765 43210</p>
@@ -40,9 +45,16 @@ export function Footer() {
                     {/* Actions */}
                     <div className="flex flex-col items-center md:items-start text-center md:text-left">
                         <h3 className="text-xl font-serif font-bold mb-4">Get Directions</h3>
-                        <Button variant="secondary" className="w-full max-w-xs mb-4">
-                            Open in Google Maps
-                        </Button>
+                        <a
+                            href="https://maps.app.goo.gl/LDm3km2Wdj9UsFgq5?g_st=aw"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-full max-w-xs mb-4"
+                        >
+                            <Button variant="secondary" className="w-full">
+                                Open in Google Maps
+                            </Button>
+                        </a>
                         <p className="text-sm text-primary-foreground/60 mt-auto">
                             © {new Date().getFullYear()} L4 Rooftop. All rights reserved.
                         </p>
