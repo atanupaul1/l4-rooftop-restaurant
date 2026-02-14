@@ -26,51 +26,57 @@ const highlights = [
 
 export function MenuHighlights() {
     return (
-        <section className="py-16 md:py-24 bg-background overflow-hidden">
-            <div className="container mx-auto px-4">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-8 md:mb-12">
-                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary">
+        <section className="relative py-16 md:py-24 bg-[#F7F4EF] overflow-hidden">
+            {/* Aesthetic Grain Effect Overlay */}
+            <div className="absolute inset-0 pointer-events-none opacity-[0.03] mix-blend-multiply bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+
+            <div className="container mx-auto px-4 relative z-10">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-12">
+                    <h2 className="text-3xl md:text-5xl font-serif font-bold text-[#4F5844]">
                         Menu Highlights
                     </h2>
-                    <p className="hidden md:block text-sm text-muted-foreground mt-2 md:mt-0">
+                    <p className="text-xs md:text-sm text-[#4F5844]/60 mt-2 md:mt-0 uppercase tracking-widest">
                         Full menu available in-store and online.
                     </p>
                 </div>
 
-                {/* Mobile: Horizontal Scroll | Desktop: Grid */}
-                <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 -mx-4 px-4 md:grid md:grid-cols-3 md:gap-8 md:overflow-visible md:pb-0 md:mx-0 md:px-0 scrollbar-hide">
-                    {highlights.map((item) => (
-                        <Link href={item.link} key={item.title} className="flex-shrink-0 w-[85vw] md:w-auto snap-center">
-                            <div className="group relative h-[400px] md:h-[500px] w-full overflow-hidden rounded-3xl cursor-pointer">
-                                <Image
-                                    src={item.image}
-                                    alt={item.title}
-                                    fill
-                                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                                />
-                                {/* Gradient Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 transition-opacity duration-300" />
+                {/* Fix: Grid layout for mobile (2 columns) and desktop (3 columns) */}
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-8">
+                    {highlights.map((item, idx) => (
+                        <Link
+                            href={item.link}
+                            key={item.title}
+                            className={`group relative overflow-hidden rounded-2xl md:rounded-3xl cursor-pointer shadow-sm
+                                ${idx === 2 ? "col-span-2 md:col-span-1" : "col-span-1"} 
+                                h-[260px] md:h-[500px]`}
+                        >
+                            <Image
+                                src={item.image}
+                                alt={item.title}
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                            />
 
-                                {/* Content Overlay */}
-                                <div className="absolute bottom-0 left-0 p-6 md:p-8 w-full">
-                                    <h3 className="text-3xl md:text-4xl font-serif text-white mb-2 leading-tight">
-                                        {item.title.split(' ').map((word, i) => (
-                                            <span key={i} className="block">{word}</span>
-                                        ))}
-                                    </h3>
-                                    <div className="h-0.5 w-12 bg-accent mt-4 mb-4 transform origin-left transition-all duration-300 group-hover:w-full" />
-                                    <p className="text-white/80 text-sm md:text-base opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
-                                        {item.description}
-                                    </p>
-                                </div>
+                            {/* Gradient Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80" />
+
+                            {/* Content Overlay - Adjusted for small screens */}
+                            <div className="absolute bottom-0 left-0 p-4 md:p-8 w-full">
+                                <h3 className="text-xl md:text-4xl font-serif text-white mb-1 leading-tight">
+                                    {item.title.split(' ').map((word, i) => (
+                                        <span key={i} className="block">{word}</span>
+                                    ))}
+                                </h3>
+                                <div className="h-0.5 w-8 bg-white/50 mt-2 mb-2 transform origin-left transition-all duration-300 group-hover:w-full group-hover:bg-white" />
+
+                                {/* Hidden on mobile to keep it clean, shown on hover/desktop */}
+                                <p className="hidden md:block text-white/80 text-xs md:text-base opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+                                    {item.description}
+                                </p>
                             </div>
                         </Link>
                     ))}
                 </div>
-
-                <p className="md:hidden text-center text-xs text-muted-foreground mt-4">
-                    Full menu available in-store and online.
-                </p>
             </div>
         </section>
     );
